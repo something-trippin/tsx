@@ -1,3 +1,4 @@
+import { userAgent } from "next/server";
 import { Equal, Expect } from "./helpers/type-utils";
 
 interface User {
@@ -11,6 +12,6 @@ interface User {
  * firstName and lastName properties of User?
  */
 
-type MyType = unknown;
+type MyType = User["firstName"] extends User["lastName"];
 
 type tests = [Expect<Equal<MyType, { firstName: string; lastName: string }>>];

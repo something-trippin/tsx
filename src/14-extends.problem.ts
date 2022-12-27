@@ -13,18 +13,18 @@ interface User {
 }
 
 interface Post {
-  id: string;
+  id: User["id"];
   title: string;
   body: string;
 }
 
 interface Comment {
-  id: string;
+  id: User["id"];
   comment: string;
 }
 
 type tests = [
   Expect<Equal<User, { id: string; firstName: string; lastName: string }>>,
   Expect<Equal<Post, { id: string; title: string; body: string }>>,
-  Expect<Equal<Comment, { id: string; comment: string }>>,
+  Expect<Equal<Comment, { id: string; comment: string }>>
 ];
